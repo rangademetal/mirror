@@ -4,9 +4,9 @@ from tabulate import tabulate
 
 from Model.Database import Database
 from Model.Secret import *
-from manga import manga as download
-from login import login
-from ftp import ftp_ionos
+from Controller.manga import manga as download
+from Controller.login import login
+from Controller.ftp import ftp_ionos
 
 connection = Database(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE)
 ftp = ftp_ionos(FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD)
@@ -39,7 +39,6 @@ while True:
     if cmd == 'categories':
         print(tabulate(categories_torrent, headers=head, tablefmt="grid"))
     elif cmd.capitalize() in categories_torrent[0]:
-        print(categories_torrent[0])
         head = [''.join(categories_torrent[0])]
         print(tabulate(manga, headers=head, tablefmt='grid'))
         cmd = input("Enter your manga's name: ")
@@ -68,6 +67,7 @@ while True:
 
 
     elif cmd == 'download':
+        location_download_path
         category = input('Enter your category name:')
         id_category = connection.get_id_torrent(db, category)
         file = input('Enter your download name: ')
@@ -80,7 +80,6 @@ while True:
         print('Download manga')
         path = input('Enter your PATH: ')
         chapter = input("Enter your chapter's name: ")
-        # E:\\manga\\Akame Ga Kill!
         link_chapter = connection.get_chapter_url(db, chapter)
         download.download_single_chapter(link_chapter, download.remove_dots(chapter), path)
     
