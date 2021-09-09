@@ -1,2 +1,1 @@
-"# mirror" 
-Simple Cloud Storage like Mega.nz
+Simple Cloud Storage like Mega.nz in Command Line
