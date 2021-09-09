@@ -1,0 +1,11 @@
+import os
+
+DB_SERVER = os.environ['TORRENT_SERVER_DB']
+DB_USERNAME = os.environ['TORRENT_HOSTNAME_DB']
+DB_PASSWORD = os.environ['TORRENT_PASSWORD_DB']
+DB_DATABASE = os.environ['TORRENT_DATABASE_DB']
+
+FTP_HOSTNAME = os.environ['SERVER_FTP']
+FTP_USERNAME = os.environ['HOSTNAME_FTP']
+FTP_PASSWORD = os.environ['PASSWORD_FTP']
+
